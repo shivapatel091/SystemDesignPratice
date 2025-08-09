@@ -26,7 +26,7 @@ public class Main {
         }
         List<Split> splits2 = new ArrayList<>();
         for(int i = 2; i <= n; i++){
-            splits2.add(new PercentageSplit(expenseManager.userMap.get((long) i), BigDecimal.valueOf(25)));
+            splits2.add(new PercentageSplit(expenseManager.userMap.get((long) i), BigDecimal.valueOf(125)));
         }
         expenseManager.addExpense(ExpenseType.EQUAL, amount, user1.getId(), splits2, null);
         // How much money does the user2 owe to user1

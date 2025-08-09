@@ -13,7 +13,13 @@ public class ExpenseManager {
     Map<Long, Map<Long, BigDecimal>> balanceSheet = new HashMap<>();
 
 
-
+    public void addExpense(Expense expense) {
+        if(expense.validate()) {
+            expenses.add(expense);
+            return;
+        }
+        throw new IllegalStateException();
+    }
     public void addUser(User user) {
         if(userMap == null) {
             userMap = new HashMap<>();
@@ -26,7 +32,7 @@ public class ExpenseManager {
     public void addExpense(ExpenseType expenseType, BigDecimal amount, Long paidBy, List<Split> splits, ExpenseMetadata expenseMetadata) {
         User paidByUser = userMap.get(paidBy);
         Expense expense = ExpenseService.createExpense(paidByUser, amount, splits, expenseType, expenseMetadata);
-        expenses.add(expense);
+        addExpense(expense);
         for (Split split : expense.getSplits()) {
             Long paidTo = split.getUser().getId();
             Map<Long, BigDecimal> balances = balanceSheet.get(paidBy);
