@@ -4,13 +4,27 @@ import java.math.BigDecimal;
 
 public class Split {
 
-    public enum SplitType {
-        EQUAL,
-        PERCENT,
-        EXACT
+    public User getUser() {
+        return user;
     }
 
-    SplitType splitType;
-    BigDecimal percentage;
+    public void setUser(User user) {
+        this.user = user;
+    }
 
+    private User user;
+
+    public BigDecimal getAmount() {
+        return amount;
+    }
+
+    public void setAmount(BigDecimal amount) {
+        this.amount = amount;
+    }
+
+    protected BigDecimal amount;
+
+    public Split(User user) {
+        this.user = user;
+    }
 }
