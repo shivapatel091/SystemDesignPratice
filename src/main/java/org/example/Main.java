@@ -25,12 +25,12 @@ public class Main {
             splits.add(new EqualSplit(expenseManager.userMap.get((long) i)));
         }
         List<Split> splits2 = new ArrayList<>();
-        for(int i = 2; i <= n; i++){
-            splits2.add(new PercentageSplit(expenseManager.userMap.get((long) i), BigDecimal.valueOf(125)));
+        for(int i = 1; i <= n; i++){
+            splits2.add(new PercentageSplit(expenseManager.userMap.get((long) i), BigDecimal.valueOf(25)));
         }
-        expenseManager.addExpense(ExpenseType.EQUAL, amount, user1.getId(), splits2, null);
+        expenseManager.addExpense(ExpenseType.PERCENTAGE, amount, user1.getId(), splits2, null);
         // How much money does the user2 owe to user1
-        expenseManager.showBalanceSheet();
+        expenseManager.showBalance(user1.getId());
 
     }
 }
