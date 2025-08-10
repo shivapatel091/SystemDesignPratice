@@ -29,7 +29,7 @@ public class Main {
             splits2.add(new PercentageSplit(expenseManager.userMap.get((long) i), BigDecimal.valueOf(25)));
         }
         expenseManager.addExpense(ExpenseType.PERCENTAGE, amount, user1.getId(), splits2, null);
-        // How much money does the user2 owe to user1
+     
         expenseManager.showBalance(user1.getId());
 
     }
